@@ -29,5 +29,6 @@ steps:
 
 - script: |
    pip install pytest pytest-azurepipelines
-    pytest tests/ --test-run-title="Windows Test"
+    pytest 
+    displayName:'pytest'
   
