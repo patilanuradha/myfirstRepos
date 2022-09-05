@@ -8,28 +8,36 @@ trigger:
 
 
 pool:
-  vmImage: 'windows-latest'
-strategy:
-  matrix:
-    Python37:
-      python.version: '3.7'
-      
-
+  name: Azure Pipelines
 steps:
+- bash: |
+   if [ -f extensions.csproj ]
+   then
+       dotnet build extensions.csproj --output ./bin
+   fi
+  displayName: 'Build extensions'
+
 - task: UsePythonVersion@0
+  displayName: 'Use Python 3.6'
   inputs:
-    versionSpec: '$(python.version)'
-  displayName: 'Use Python $(python.version)'
-  
+    versionSpec: 3.6
 
-- script: |
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
-  displayName: 'Install dependencies'
+- bash: |
+   python3.6 -m venv worker_venv
+   source worker_venv/bin/activate
+   pip3.6 install setuptools
+   pip3.6 install -r requirements.txt
+  displayName: 'Install Application Dependencies'
 
-- script: |
-    pip install pytest pytest-azurepipelines
-    pytest
-  displayName: 'pytest'
+- task: ArchiveFiles@2
+  displayName: 'Archive files'
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+    includeRootFolder: false
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+
+
   
   
