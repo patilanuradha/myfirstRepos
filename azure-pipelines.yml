@@ -28,8 +28,6 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    pip install pytest pytest-azurepipelines
-    pytest
-  displayName: 'pytest'
-  
+   pip install pytest pytest-azurepipelines
+    pytest tests/ --test-run-title="Windows Test"
   
