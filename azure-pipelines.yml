@@ -80,7 +80,7 @@ steps:
   inputs:
     azureSubscription: Service_Connection_Devops
     appType: functionAppLinux
-    appName: $(Demofunapp1000)
+    appName: Demofunapp1000
 
 
 
