@@ -36,7 +36,7 @@ steps:
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
-  steps:
+  
 - bash: |
    if [ -f extensions.csproj ]
    then
