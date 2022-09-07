@@ -78,9 +78,9 @@ steps:
 - task: AzureFunctionApp@1
   displayName: 'Deploy Azure Function App'
   inputs:
-    azureSubscription: '$(Parameters.Service_connection_Devops)'
+    azureSubscription: Service_Connection_Devops
     appType: functionAppLinux
-    appName: Demofunapp1000
+    appName: $(Demofunapp1000)
 
 
 
