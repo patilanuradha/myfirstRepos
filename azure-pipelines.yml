@@ -36,6 +36,14 @@ steps:
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
+  steps:
+- bash: |
+   if [ -f extensions.csproj ]
+   then
+       dotnet build extensions.csproj --output ./bin
+   fi
+  displayName: 'Build extensions'
+
 
 
 
