@@ -13,3 +13,17 @@ git remote add origin https://github.com/patilanuradha/myfirstRepos.git
 git branch -M main
 git push -u origin main
 94855
+
+
+git pull origin main
+
+Pull Request
+$ git checkout -b new_branch
+$ git branch
+$ git log
+$ touch new_branch-test-file.txt
+$ git add .
+$ git commit -m "added"
+$ git push
+$ git paste git push
+Username for 'https://github.com':
