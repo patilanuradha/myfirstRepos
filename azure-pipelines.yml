@@ -43,6 +43,12 @@ steps:
        dotnet build extensions.csproj --output ./bin
    fi
   displayName: 'Build extensions'
+  
+- task: UsePythonVersion@0
+  displayName: 'Use Python 3.6'
+  inputs:
+    versionSpec: 3.6
+
 
 
 
